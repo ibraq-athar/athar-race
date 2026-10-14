@@ -15,7 +15,7 @@
   --mine-0:#14202e; --hero-0:#1c1a12; --hero-1:#171c25; --next-1:#151a22; --road-dash:#2b3546; --gold-deep:#8a6a1e;
   --radius:12px; color-scheme:dark;
 }
-/* Light («عادي») theme — chosen with the header button, remembered on the device */
+/* Light («فاتح») theme — chosen with the header button, remembered on the device */
 :root[data-theme="light"]{
   --bg:#f5f3ee; --surface:#ffffff; --surface-2:#f0ede6; --line:#e3ded3; --line-strong:#cdc5b6;
   --fg:#1c1f26; --fg-2:#454b57; --fg-3:#6b7180;
@@ -304,7 +304,7 @@ details p{margin:8px 0 0;max-width:72ch;color:var(--fg-2)}
       </div>
     </div>
     <div class="meta">
-      <button type="button" class="pill theme-btn" id="themeBtn" aria-label="تبديل بين الوضع الداكن والعادي"></button>
+      <button type="button" class="pill theme-btn" id="themeBtn" aria-label="تبديل بين الوضع الداكن والفاتح"></button>
       <span class="pill"><span class="dot"></span>البيانات حتى <b id="pAsof">—</b></span>
       <span class="pill">اليوم <b id="pDay">—</b></span>
       <span class="pill">باقي <b id="pLeft">—</b> يوم</span>
@@ -594,7 +594,7 @@ function loop(t, items, speed){
 (function(){
   var root=document.documentElement, btn=document.getElementById('themeBtn');
   function label(){ var light=root.getAttribute('data-theme')==='light';
-    btn.innerHTML = light ? '🌙 <span class="tl">الوضع الداكن</span><span class="ts">داكن</span>' : '☀️ <span class="tl">الوضع العادي</span><span class="ts">عادي</span>';
+    btn.innerHTML = light ? '🌙 <span class="tl">الوضع الداكن</span><span class="ts">داكن</span>' : '☀️ <span class="tl">الوضع الفاتح</span><span class="ts">فاتح</span>';
     btn.setAttribute('aria-pressed', light ? 'true' : 'false'); }
   btn.addEventListener('click', function(){
     var light = root.getAttribute('data-theme')!=='light';
