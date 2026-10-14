@@ -28,6 +28,19 @@
 .theme-btn{cursor:pointer;color:var(--fg);font:inherit;font-size:13px}
 .theme-btn:hover{border-color:var(--line-strong)}
 .theme-btn:focus-visible{outline:2px solid var(--bar);outline-offset:2px}
+.theme-btn .ts{display:none}
+.meta .pill{white-space:nowrap}
+/* phones: compact header pills, news label on its own row so the moving news gets the full width */
+@media (max-width:640px){
+  .head{gap:10px}
+  .meta{width:100%;gap:6px}
+  .meta .pill{font-size:12px;padding:4px 10px}
+  .theme-btn .tl{display:none} .theme-btn .ts{display:inline}
+  .news{flex-direction:column}
+  .nlabel{display:block;text-align:start;padding:7px 12px;font-size:14px}
+  .nlabel small{display:block;font-size:11.5px;margin-top:1px}
+  .ntape{padding:9px 0}
+}
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--fg);font-family:var(--font);font-size:15px;line-height:1.55;margin:0}
 .wrap{direction:rtl;max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:14px 56px;display:flex;flex-direction:column;gap:22px}
@@ -554,7 +567,7 @@ function loop(t, items, speed){
 (function(){
   var root=document.documentElement, btn=document.getElementById('themeBtn');
   function label(){ var light=root.getAttribute('data-theme')==='light';
-    btn.textContent = light ? '🌙 الوضع الداكن' : '☀️ الوضع العادي';
+    btn.innerHTML = light ? '🌙 <span class="tl">الوضع الداكن</span><span class="ts">داكن</span>' : '☀️ <span class="tl">الوضع العادي</span><span class="ts">عادي</span>';
     btn.setAttribute('aria-pressed', light ? 'true' : 'false'); }
   btn.addEventListener('click', function(){
     var light = root.getAttribute('data-theme')!=='light';
